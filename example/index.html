@@ -2,34 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style type="text/css">
         img{
-            max-width: 100%;
+           
             box-sizing: border-box;
             margin: 8px 0;
         }
         .page{
-            padding: 15px;            
+            padding: 15px;   
+            overflow: hidden;         
         }
     </style>
 </head>
 <body>
-    <script src="/resource/js/mod.js"></script>  
+    <script src="/resource/js/Magnifier.js"></script>  
     <div class="page">
         14日，在北京发布的一份调研报告显示，目前本科以上学历的职场人士普遍期望万元以上月薪酬，还有近半的求职人平均薪酬期望达到15000元/月
-        <img src="/resource/img/img2.jpg" alt="">
+        <img src="/resource/img/img2.jpg" class="Monent" data-src="/resource/img/img4.jpg" alt="">
+        14日，在北京发布的一份调研报告显示，目前本科以上学历的职场人士普遍期望万元以上月薪酬，还有近半的求职人平均薪酬期望达到15000元/月
+        <div class="insert" data-name="123"></div>
+        <img src="/resource/img/img2.jpg" class="Monent" data-src="/resource/img/img2.jpg" alt="">
+        <img src="/resource/img/img3.jpg" class="Monent" data-src="/resource/img/img3.jpg" alt="">
     </div>
-    <script>
-        require("/resource/js/image_magnifier.es6");
-
-        setTimeout(function(){
+   <script>
+       setTimeout(function(){
             var img=document.createElement("img");
-            img.src="/resource/img/img3.jpg";
-            document.querySelector(".page").appendChild(img);
-        },2000);
-    </script>
+            img.src=__uri("/resource/img/img2.jpg");
+            img.className="Monent";
+            document.querySelector(".insert").appendChild(img);
+       },2000);
+
+       console.log(document.querySelector(".insert[data-name='123']"));
+   </script>
 </body>
 </html>
